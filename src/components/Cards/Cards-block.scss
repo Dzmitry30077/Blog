@@ -1,0 +1,9 @@
+.cardsBlock {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 352px);
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-column-gap: 32px;
+  grid-row-gap: 40px;
+  justify-content: center;
+}
