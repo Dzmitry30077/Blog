@@ -1,9 +1,21 @@
+import { useState } from "react";
 import "./Search.scss";
 
 const Search: React.FC = () => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearch = (e: any) => {
+    setSearchValue(e.target.value);
+  };
+
   return (
     <div className="search">
-      <input className="search-form" placeholder={"Search..."} />
+      <input
+        className="search-form"
+        placeholder={"Search..."}
+        value={searchValue}
+        onChange={handleSearch}
+      />
       <button className="search-button">
         <svg
           width="24"

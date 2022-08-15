@@ -1,0 +1,35 @@
+@import '../../../App/App.scss';
+
+.nav-title {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  &-link {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $secondary;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &-discription, .nav-title-discription__span{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $medium;
+
+    &__span {
+      margin: 0 8px;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+@import '../../App/App.scss';
+
 .footer {
   margin-top: 72px;
   height: 92px;
@@ -5,6 +7,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid $extraLight;
 
   &-title {
     font-family: 'Inter';

@@ -1,13 +1,14 @@
-import Search from "../../components/Search/Search";
+import Search from "../../components/elements/Search/Search";
 import "./Header.scss";
-const logo = require("../../assets/pics/HeaderLogo.png");
+import logo from "../../assets/pics/HeaderLogo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="header">
-      <a href="#" className="header__logo">
+      <Link to={"/"} className="header__logo">
         <img src={logo} alt="logo" className="header__logo__img" />
-      </a>
+      </Link>
       <Search />
       <a href="#" className="header-user">
         <span className="header-user__square">

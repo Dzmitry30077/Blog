@@ -1,10 +1,17 @@
 import "./App.scss";
-import Main from "../pages/main/Main";
+import Main from "../pages/Main/Main";
+import SearchResults from "../pages/Search-results/Search-results";
+import CardContent from "../pages/Card-content/Card-content";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Routes>
+        <Route index element={<Main />} />
+        <Route path="searchResult/:id" element={<SearchResults />} />
+        <Route path="cardContent/:id" element={<CardContent />} />
+      </Routes>
     </div>
   );
 }

@@ -1,21 +1,21 @@
 import CardsBlock from "../../components/Cards/Cards-block";
-import Menu from "../../components/Menu/Menu";
+import PageTitle from "../../components/elements/Page-title/Page-title";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import Footer from "../../layouts/Footer/Footer";
 import Header from "../../layouts/Header/Header";
-import "./Main.scss";
+import "./Search-results.scss";
 
-const Main: React.FC = () => {
+const SearchResults: React.FC = () => {
   return (
-    <div className="main">
+    <>
       <Header />
       <Wrapper>
-        <Menu />
-        <CardsBlock limit={12} />
+        <PageTitle text={`Search results ${"title"}`} />
+        <CardsBlock />
         <Footer />
       </Wrapper>
-    </div>
+    </>
   );
 };
 
-export default Main;
+export default SearchResults;
