@@ -25,5 +25,12 @@ export interface IPageTitle {
 }
 
 export interface ICardBlock {
-  limit?: number
+  limit: number
+}
+
+export interface IArticlesParams {
+  limit: number
+  page: number | string
+  search?: string
+  sort?: string
 }

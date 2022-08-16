@@ -3,6 +3,7 @@ import Menu from "../../components/Menu/Menu";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import Footer from "../../layouts/Footer/Footer";
 import Header from "../../layouts/Header/Header";
+import Pagination from "../../layouts/Pagination/Pagination";
 import "./Main.scss";
 
 const Main: React.FC = () => {
@@ -12,6 +13,7 @@ const Main: React.FC = () => {
       <Wrapper>
         <Menu />
         <CardsBlock limit={12} />
+        <Pagination />
         <Footer />
       </Wrapper>
     </div>

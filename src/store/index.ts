@@ -15,7 +15,7 @@ const articlesReducer: Reducer = (state = initialState, action) => {
 }
 
 export const rootReducer: Reducer = combineReducers({
-  articlesReducer
+  articles: articlesReducer
 })
 
 export const store = configureStore({

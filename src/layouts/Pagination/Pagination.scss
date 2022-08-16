@@ -1,0 +1,51 @@
+@import '../../App/App.scss';
+
+.pagination {
+  margin-top: 72px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  &-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: $light;
+    border: none;
+    background: transparent;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .prev {
+
+    &:hover svg{
+        fill: $primary;
+      }
+    svg {
+      margin-right: 11px;
+      fill: $light;
+      }
+    }
+  }
+
+  .next {
+
+    &:hover svg {
+        fill: $primary;
+      }
+    svg {
+      margin-left: 11px;
+      fill: $light;
+    }
+
+}

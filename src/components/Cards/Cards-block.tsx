@@ -2,26 +2,43 @@ import "./Cards-block.scss";
 import Card from "./Card/Card";
 import { useEffect, useState } from "react";
 import { IArticle, ICardBlock } from "../../types/Types";
-import { getArticles } from "../../API/api";
-import { useDispatch, useSelector } from "react-redux";
 import { getArticleThunk } from "../../store/getArticlesThunk";
 import { useAppDispatch, useAppSelector } from "../../store";
+import { useSearchParams } from "react-router-dom";
 
-const url = "https://api.spaceflightnewsapi.net/v3/articles";
-
-const CardsBlock: React.FC<ICardBlock> = () => {
+const CardsBlock: React.FC<ICardBlock> = ({ limit }) => {
   const [loaded, setLoaded] = useState<boolean>(false);
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useAppDispatch();
-  const articles = useAppSelector((state) => state);
+
+  const articles: IArticle[] = useAppSelector(
+    (state) => state.articles.articles
+  );
+
+  const currentPage = searchParams.get("page") ?? 1;
 
   useEffect(() => {
-    dispatch(getArticleThunk());
+    dispatch(getArticleThunk({ limit: limit, page: currentPage }));
     setLoaded(true);
-  }, []);
+  }, [searchParams]);
 
-  console.log(articles);
-
-  return <div className="cardsBlock">{loaded ? "Hello" : "Loading..."}</div>;
+  return (
+    <div className="cardsBlock">
+      {loaded
+        ? articles.map((article) => {
+            return (
+              <Card
+                key={article.id}
+                link={`/CardContent/${article.id}`}
+                img={article.imageUrl}
+                title={article.title}
+                date={article.publishedAt}
+              />
+            );
+          })
+        : "Loading..."}
+    </div>
+  );
 };
 
 export default CardsBlock;

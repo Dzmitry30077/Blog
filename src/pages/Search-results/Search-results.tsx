@@ -11,7 +11,7 @@ const SearchResults: React.FC = () => {
       <Header />
       <Wrapper>
         <PageTitle text={`Search results ${"title"}`} />
-        <CardsBlock />
+        <CardsBlock limit={2} />
         <Footer />
       </Wrapper>
     </>

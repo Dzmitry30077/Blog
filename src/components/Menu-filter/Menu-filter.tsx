@@ -6,7 +6,7 @@ const MenuFilter: React.FC = () => {
       <div className="menu-filter-buttons">
         <button className="menu-filter-button primary">Day</button>
         <button className="menu-filter-button">Week</button>
-        <button className="menu-filter-button">Monath</button>
+        <button className="menu-filter-button">Month</button>
         <button className="menu-filter-button">Year</button>
       </div>
       <select name="menu-filter-select">
