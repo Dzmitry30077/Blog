@@ -20,29 +20,35 @@
     color: $light;
     border: none;
     background: transparent;
-
-    &:hover {
-      color: $primary;
-    }
   }
 
   .prev {
 
-    &:hover svg{
-        fill: $primary;
-      }
     svg {
       margin-right: 11px;
       fill: $light;
+      }
+    }
+
+    .active {
+      color: $secondary;
+
+      &:hover {
+        color: $primary;
+
+        svg {
+          fill: $primary;
+        }
+      }
+
+      svg {
+        fill: $secondary;
       }
     }
   }
 
   .next {
 
-    &:hover svg {
-        fill: $primary;
-      }
     svg {
       margin-left: 11px;
       fill: $light;

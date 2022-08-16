@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: row;
 
-
   &-items {
     font-family: 'Inter';
     font-style: normal;
@@ -25,4 +24,8 @@
       }
   }
 
+}
+
+.active {
+  color: $primary;
 }

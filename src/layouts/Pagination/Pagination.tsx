@@ -1,10 +1,29 @@
+import { useSearchParams } from "react-router-dom";
 import Pages from "./Pages";
 import "./Pagination.scss";
 
 const Pagination: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const current = Number(searchParams.get("page")) ?? 1;
+
+  const handlePage = (currentPage: any, btn: string) => {
+    btn === "next" && currentPage < 6
+      ? setSearchParams(`?page=${currentPage + 1}`)
+      : btn === "prev" && currentPage > 1
+      ? setSearchParams(`?page=${currentPage - 1}`)
+      : setSearchParams(`?page=${currentPage}`);
+  };
+
   return (
     <div className="pagination">
-      <button className="pagination-button prev">
+      <button
+        className={
+          current > 1
+            ? "pagination-button prev active"
+            : "pagination-button prev"
+        }
+        onClick={() => handlePage(current, "prev")}
+      >
         <svg
           width="18"
           height="15"
@@ -19,8 +38,15 @@ const Pagination: React.FC = () => {
         </svg>
         Prev
       </button>
-      <Pages count={6} />
-      <button className="pagination-button next">
+      <Pages count={6} current={current} />
+      <button
+        className={
+          current < 6
+            ? "pagination-button next active"
+            : "pagination-button next"
+        }
+        onClick={() => handlePage(current, "next")}
+      >
         Next
         <svg
           width="18"
