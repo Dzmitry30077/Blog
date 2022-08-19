@@ -14,7 +14,7 @@ const Search: React.FC = () => {
     searchParams.set("search", inputText);
     setSearchParams(searchParams);
     await event.target;
-    navigate(`/searchResult/?search=${inputText}`, { replace: true });
+    navigate(`/searchResult?search=${inputText}`, { replace: true });
   }
 
   useEffect(() => {
