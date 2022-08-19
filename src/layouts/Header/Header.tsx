@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="header">
-      <Link to={"/"} className="header__logo">
+      <Link to={"/?page=1"} className="header__logo">
         <img src={logo} alt="logo" className="header__logo__img" />
       </Link>
       <Search />
-      <a href="#" className="header-user">
+      <Link to="/" className="header-user">
         <span className="header-user__square">
           <svg
             width="24"
@@ -36,7 +36,7 @@ const Header = () => {
           </svg>
         </span>
         <span className="header-user__discription">Sign In</span>
-      </a>
+      </Link>
     </div>
   );
 };

@@ -16,9 +16,13 @@ const CardsBlock: React.FC<ICardBlock> = ({ limit }) => {
   );
 
   const currentPage = searchParams.get("page") ?? 1;
+  const search = searchParams.get("search") ?? "";
+  const sort = searchParams.get("sort") ?? null;
 
   useEffect(() => {
-    dispatch(getArticleThunk({ limit: limit, page: currentPage }));
+    dispatch(
+      getArticleThunk({ limit: limit, page: currentPage, search, sort })
+    );
     setLoaded(true);
   }, [searchParams]);
 

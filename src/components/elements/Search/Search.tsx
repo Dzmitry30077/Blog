@@ -1,46 +1,41 @@
-import { useState } from "react";
 import "./Search.scss";
+import icon from "../../../assets/pics/search.svg";
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { current } from "@reduxjs/toolkit";
 
 const Search: React.FC = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [inputText, setInputText] = useState<any>("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  let navigate = useNavigate();
 
-  const handleSearch = (e: any) => {
-    setSearchValue(e.target.value);
-  };
+  async function handleSubmit(event: any) {
+    event.preventDefault();
+    searchParams.set("search", inputText);
+    setSearchParams(searchParams);
+    await event.target;
+    navigate(`/searchResult/?search=${inputText}`, { replace: true });
+  }
+
+  useEffect(() => {
+    const current = searchParams.get("search");
+    setInputText(current);
+  }, []);
 
   return (
-    <div className="search">
-      <input
-        className="search-form"
-        placeholder={"Search..."}
-        value={searchValue}
-        onChange={handleSearch}
-      />
-      <button className="search-button">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11 18C14.866 18 18 14.866 18 11C18 7.13401 14.866 4 11 4C7.13401 4 4 7.13401 4 11C4 14.866 7.13401 18 11 18Z"
-            stroke="#313037"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M20 20L16 16"
-            stroke="#313037"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-    </div>
+    <>
+      <form onSubmit={handleSubmit} className="search-form">
+        <input
+          onChange={(e) => setInputText(e.target.value)}
+          value={inputText}
+          className="search-input"
+          placeholder="Search"
+        />
+        <button className="search-btn">
+          <img className="search-icon" src={icon} alt="" />
+        </button>
+      </form>
+    </>
   );
 };
 

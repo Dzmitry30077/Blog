@@ -32,5 +32,5 @@ export interface IArticlesParams {
   limit: number
   page: number | string
   search?: string
-  sort?: string
+  sort?: string | null
 }

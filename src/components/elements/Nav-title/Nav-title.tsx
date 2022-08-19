@@ -4,7 +4,7 @@ import "./Nav-title.scss";
 const NavTitle: React.FC<any> = ({ id }) => {
   return (
     <div className="nav-title">
-      <Link to={"/"} className="nav-title-link">
+      <Link to={"/?page=1"} className="nav-title-link">
         Home
       </Link>
       <span className="nav-title-discription__span">/</span>
