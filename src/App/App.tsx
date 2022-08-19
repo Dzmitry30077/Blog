@@ -1,5 +1,5 @@
 import "./App.scss";
-import Main from "../pages/Main/Main";
+import Main from "../pages/main/Main";
 import SearchResults from "../pages/Search-results/Search-results";
 import CardContent from "../pages/Card-content/Card-content";
 import { Route, Routes } from "react-router-dom";

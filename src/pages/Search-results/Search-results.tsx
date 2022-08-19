@@ -9,7 +9,7 @@ import "./Search-results.scss";
 
 const SearchResults: React.FC = () => {
   const [searchState, setSearchState] = useState({
-    search: "",
+    search: "result",
   });
   const [searchParams, setSearchParams] = useSearchParams();
 
