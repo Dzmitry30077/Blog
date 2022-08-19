@@ -1,0 +1,25 @@
+// System colors==================================================
+$primary: #6C1BDB;
+$primary2: #912EF2;
+$secondary: #313037;
+
+// Secondary colors===============================================
+$medium: rgba(49, 48, 55, 0.5);
+$light: rgba(49, 48, 55, 0.3);
+$extraLight: rgba(49, 48, 55, 0.1);
+
+// contextual colors==============================================
+$error: #FD3419;
+$white: #FFFFFF;
+$gray: #F3F3F3;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+// * {
+//   font-family: Inter;
+// }
+
+.App {
+  max-width: 100%;
+  background-color: #F3F3F3;
+}

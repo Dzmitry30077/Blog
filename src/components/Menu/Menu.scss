@@ -1,0 +1,38 @@
+@import "../../App/App.scss";
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &-tabs {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid $extraLight;
+
+
+    &-button {
+      margin-right: 40px;
+      padding: 0 40px 24px 40px;
+      display: flex;
+      justify-content: center;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      color: $secondary;
+      background-color: transparent;
+      border: none;
+
+      &.active {
+        border-bottom: 2px solid $secondary;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $primary;
+      }
+    }
+  }
+}
