@@ -1,5 +1,5 @@
 import { IPageTitle } from "../../../types/Types";
-import "./Page-title.scss";
+import "./PageTitle.scss";
 
 const PageTitle: React.FC<IPageTitle> = ({ text }) => {
   return <div className="page-title">{text}</div>;

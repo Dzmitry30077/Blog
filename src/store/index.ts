@@ -1,8 +1,11 @@
 import { Action, combineReducers, configureStore, Reducer, ThunkAction } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import thunk from "redux-thunk";
 const initialState = {
   articles: [],
+}
+
+const postState = {
+  post: {},
 }
 
 const articlesReducer: Reducer = (state = initialState, action) => {
@@ -14,8 +17,18 @@ const articlesReducer: Reducer = (state = initialState, action) => {
   }
 }
 
+const postReducer: Reducer = (state = postState, action) => {
+  switch (action.type) {
+    case 'PUSH_POST' :
+      return {post: action.payload}
+    default:
+      return state
+  }
+}
+
 export const rootReducer: Reducer = combineReducers({
-  articles: articlesReducer
+  articles: articlesReducer,
+  post: postReducer
 })
 
 export const store = configureStore({

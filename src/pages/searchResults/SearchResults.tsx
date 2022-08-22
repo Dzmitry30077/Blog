@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import CardsBlock from "../../components/Cards/Cards-block";
-import PageTitle from "../../components/elements/Page-title/Page-title";
-import Wrapper from "../../components/Wrapper/Wrapper";
-import Footer from "../../layouts/Footer/Footer";
-import Header from "../../layouts/Header/Header";
-import "./Search-results.scss";
+import CardsBlock from "../../components/cardsBlock/CardsBlock";
+import PageTitle from "../../components/elements/pageTitle/PageTitle";
+import Wrapper from "../../components/wrapper/Wrapper";
+import Footer from "../../layouts/footer/Footer";
+import Header from "../../layouts/header/Header";
+import "./SearchResults.scss";
 
 const SearchResults: React.FC = () => {
   const [searchState, setSearchState] = useState({
     search: "result",
   });
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
+
+  const current: any = searchParams.get("search");
 
   useEffect(() => {
-    const current: any = searchParams.get("search");
     setSearchState({ search: current });
-  }, []);
+  }, [current]);
 
   return (
     <>

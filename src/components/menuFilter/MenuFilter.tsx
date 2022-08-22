@@ -1,4 +1,4 @@
-import "./Menu-filter.scss";
+import "./MenuFilter.scss";
 
 const MenuFilter: React.FC = () => {
   return (
