@@ -4,26 +4,26 @@ import "./Pagination.scss";
 
 const Pagination: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const current = Number(searchParams.get("page")) ?? 1;
-
+  const currentPage = Number(searchParams.get("page")) ?? 1;
+  const currentPath = searchParams.get("path") ?? "articles";
   const handlePage = (currentPage: any, btn: string) => {
-    // setSearchParams(`?page=${currentPage + 1}`);
+    setSearchParams(`?page=${currentPage + 1}`);
     btn === "next" && currentPage < 6
-      ? setSearchParams(`?page=${currentPage + 1}`)
+      ? setSearchParams(`?path=${currentPath}&page=${currentPage + 1}`)
       : btn === "prev" && currentPage > 1
-      ? setSearchParams(`?page=${currentPage - 1}`)
-      : setSearchParams(`?page=${currentPage}`);
+      ? setSearchParams(`?path=${currentPath}&page=${currentPage - 1}`)
+      : setSearchParams(`?path=${currentPath}&page=${currentPage}`);
   };
 
   return (
     <div className="pagination">
       <button
         className={
-          current > 1
+          currentPage > 1
             ? "pagination-button prev active"
             : "pagination-button prev"
         }
-        onClick={() => handlePage(current, "prev")}
+        onClick={() => handlePage(currentPage, "prev")}
       >
         <svg
           width="18"
@@ -39,14 +39,14 @@ const Pagination: React.FC = () => {
         </svg>
         Prev
       </button>
-      <Pages count={6} current={current} />
+      <Pages count={6} current={currentPage} />
       <button
         className={
-          current < 6
+          currentPage < 6
             ? "pagination-button next active"
             : "pagination-button next"
         }
-        onClick={() => handlePage(current, "next")}
+        onClick={() => handlePage(currentPage, "next")}
       >
         Next
         <svg

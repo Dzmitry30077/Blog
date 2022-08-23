@@ -4,7 +4,6 @@ import "./Pages.scss";
 
 const Pages: React.FC<iPages> = ({ count, current }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const handleClickPage = (page: any) => {
     searchParams.set("page", page);
     setSearchParams(searchParams);

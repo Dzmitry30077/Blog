@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import PageTitle from "../elements/pageTitle/PageTitle";
 import MenuFilter from "../menuFilter/MenuFilter";

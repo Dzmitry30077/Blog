@@ -30,7 +30,7 @@ const CardsBlock: React.FC<ICardBlock> = ({ limit }) => {
       })
     );
     setLoaded(true);
-  }, [search]);
+  }, [dispatch, currentPage, limit, search, selectPosts, sort]);
 
   return (
     <div className="cardsBlock">

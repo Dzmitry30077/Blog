@@ -1,5 +1,5 @@
-import { AppThunk } from "./Index"
-import { getArticles } from "../api/Api"
+import { AppThunk } from './Index'
+import { getArticles } from '../api/Api'
 import { IArticlesParams } from "../types/Types"
 
 
