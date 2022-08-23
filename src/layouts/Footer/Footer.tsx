@@ -1,4 +1,4 @@
-import Switch from "../../components/elements/Switch/Switch";
+import Switch from "../../components/elements/switch/Switch";
 import "./Footer.scss";
 
 const Footer: React.FC = () => {
