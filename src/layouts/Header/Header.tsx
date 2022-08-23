@@ -1,4 +1,4 @@
-import Search from "../../components/search/Search";
+import Search from "../../components/elements/Search/Search";
 import "./Header.scss";
 import logo from "../../assets/pics/HeaderLogo.png";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="header">
-      <Link to={"/?path=articles&page=1"} className="header__logo">
+      <Link to={"/?page=1"} className="header__logo">
         <img src={logo} alt="logo" className="header__logo__img" />
       </Link>
       <Search />

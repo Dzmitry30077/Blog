@@ -1,25 +1,24 @@
 import "./Search.scss";
-import icon from "../../assets/Icons/search.svg";
-import { SyntheticEvent, useEffect, useState } from "react";
+import icon from "../../../assets/pics/search.svg";
+import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { current } from "@reduxjs/toolkit";
 
 const Search: React.FC = () => {
-  const [inputText, setInputText] = useState<string>("");
+  const [inputText, setInputText] = useState<any>("");
   const [searchParams, setSearchParams] = useSearchParams();
   let navigate = useNavigate();
 
-  async function handleSubmit(e: SyntheticEvent) {
-    e.preventDefault();
-    const current = searchParams.get("path");
+  async function handleSubmit(event: any) {
+    event.preventDefault();
     searchParams.set("search", inputText);
     setSearchParams(searchParams);
-    navigate(`/search-result/?path=${current}&search=${inputText}`, {
-      replace: true,
-    });
+    await event.target;
+    navigate(`/searchResult?search=${inputText}`, { replace: true });
   }
 
   useEffect(() => {
-    const current = searchParams.get("search") || "";
+    const current = searchParams.get("search");
     setInputText(current);
   }, []);
 

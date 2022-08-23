@@ -7,7 +7,7 @@ const Pagination: React.FC = () => {
   const current = Number(searchParams.get("page")) ?? 1;
 
   const handlePage = (currentPage: any, btn: string) => {
-    // setSearchParams(`?page=${currentPage + 1}`);
+    setSearchParams(`?page=${currentPage + 1}`);
     btn === "next" && currentPage < 6
       ? setSearchParams(`?page=${currentPage + 1}`)
       : btn === "prev" && currentPage > 1

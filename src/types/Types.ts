@@ -15,7 +15,7 @@ export interface ICardProps {
   img: string
   title: string
 	cardText?: string
-	date: string
+	date?: string
 	postRead?: string
 	author?: string
 }
@@ -33,13 +33,4 @@ export interface IArticlesParams {
   page: number | string
   search?: string
   sort?: string | null
-}
-
-export interface INavTitle {
-  id?: string;
-}
-
-export interface iPages {
-  count: number;
-  current: number;
 }

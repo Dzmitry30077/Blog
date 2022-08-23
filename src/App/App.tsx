@@ -1,7 +1,7 @@
 import "./App.scss";
 import Main from "../pages/main/Main";
-import SearchResults from "../pages/searchResults/SearchResults";
-import CardContent from "../pages/cardContent/CardContent";
+import SearchResults from "../pages/Search-results/Search-results";
+import CardContent from "../pages/Card-content/Card-content";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route index element={<Main />} />
-        <Route path="search-result/" element={<SearchResults />} />
-        <Route path="card-content/" element={<CardContent />} />
+        <Route path="searchResult/" element={<SearchResults />} />
+        <Route path="cardContent/:id" element={<CardContent />} />
       </Routes>
     </div>
   );

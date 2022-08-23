@@ -1,14 +1,14 @@
-import "./CardsBlock.scss";
-import Card from "../card/Card";
+import "./Cards-block.scss";
+import Card from "./Card/Card";
 import { useEffect, useState } from "react";
 import { IArticle, ICardBlock } from "../../types/Types";
-import { getArticleThunk } from "../../store/GetArticlesThunk";
-import { useAppDispatch, useAppSelector } from "../../store/Index";
+import { getArticleThunk } from "../../store/getArticlesThunk";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { useSearchParams } from "react-router-dom";
 
 const CardsBlock: React.FC<ICardBlock> = ({ limit }) => {
   const [loaded, setLoaded] = useState<boolean>(false);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useAppDispatch();
 
   const articles: IArticle[] = useAppSelector(
@@ -18,19 +18,13 @@ const CardsBlock: React.FC<ICardBlock> = ({ limit }) => {
   const currentPage = searchParams.get("page") ?? 1;
   const search = searchParams.get("search") ?? "";
   const sort = searchParams.get("sort") ?? null;
-  const selectPosts = searchParams.get("path") ?? "articles";
 
   useEffect(() => {
     dispatch(
-      getArticleThunk(selectPosts, {
-        limit: limit,
-        page: currentPage,
-        search,
-        sort,
-      })
+      getArticleThunk({ limit: limit, page: currentPage, search, sort })
     );
     setLoaded(true);
-  }, [search]);
+  }, [searchParams]);
 
   return (
     <div className="cardsBlock">
@@ -39,7 +33,7 @@ const CardsBlock: React.FC<ICardBlock> = ({ limit }) => {
             return (
               <Card
                 key={article.id}
-                link={`/card-content/?&path=${selectPosts}&id=${article.id}`}
+                link={`/CardContent/${article.id}`}
                 img={article.imageUrl}
                 title={article.title}
                 date={article.publishedAt}
