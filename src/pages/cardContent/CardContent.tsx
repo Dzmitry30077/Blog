@@ -6,28 +6,31 @@ import Footer from "../../layouts/footer/Footer";
 import Header from "../../layouts/header/Header";
 import "./CardContent.scss";
 
-import { useParams, useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import { getPostThunk } from "../../store/GetPostThunk";
 import { useAppDispatch, useAppSelector } from "../../store/Index";
 
 const CardContent: React.FC = () => {
-  const { id } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
+
   const dispatch = useAppDispatch();
+
   const selectPost = searchParams.get("path") ?? "articles";
   const post = useAppSelector((state) => state.post.post);
 
   useEffect(() => {
-    dispatch(getPostThunk(selectPost, id));
-    console.log(post);
-  }, [searchParams]);
+    if (id) {
+      dispatch(getPostThunk(selectPost, id));
+    }
+  }, [id, selectPost, dispatch]);
 
   return (
     <>
       <Header />
       <Wrapper>
-        <NavTitle id={id} />
+        <NavTitle id={post.id} />
         <PageTitle text={post.title} />
         <div className="card-content">
           <span className="card-content-container">

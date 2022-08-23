@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route index element={<Main />} />
         <Route path="search-result/" element={<SearchResults />} />
-        <Route path="card-content/:id" element={<CardContent />} />
+        <Route path="card-content/" element={<CardContent />} />
       </Routes>
     </div>
   );

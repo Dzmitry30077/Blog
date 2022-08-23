@@ -12,7 +12,7 @@ export const getArticles = async (url: string, params: IArticlesParams) => {
       params: {
         _limit: params.limit,
         _start: +(params.page) * params.limit - params.limit,
-        // _title_contains: params.search,
+        _title_contains: params.search,
         _sort: params.sort
       }
     });
@@ -30,12 +30,3 @@ export const getPost = async (url: string, id: string) => {
     console.error(error);
   }
 }
-
-// useEffect(() => {
-//     fetch(`${url}/${id}`)
-//       .then((response) => response.json())
-//       .then((result) => {
-//         setArticle(result);
-//       })
-//       .catch(console.error);
-//   }, [id]);

@@ -30,7 +30,7 @@ const CardsBlock: React.FC<ICardBlock> = ({ limit }) => {
       })
     );
     setLoaded(true);
-  }, [searchParams]);
+  }, [search]);
 
   return (
     <div className="cardsBlock">
@@ -39,7 +39,7 @@ const CardsBlock: React.FC<ICardBlock> = ({ limit }) => {
             return (
               <Card
                 key={article.id}
-                link={`/Card-content/${article.id}`}
+                link={`/card-content/?&path=${selectPosts}&id=${article.id}`}
                 img={article.imageUrl}
                 title={article.title}
                 date={article.publishedAt}
