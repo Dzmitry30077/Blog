@@ -1,10 +1,10 @@
-import { AppThunk } from "./Index"
-import { getArticles } from "../api/Api"
+import { AppThunk } from "./index"
+import { getArticles } from "../API/api"
 import { IArticlesParams } from "../types/Types"
 
 
-export const getArticleThunk = (url: string, params: IArticlesParams): AppThunk => async (dispatch) => {
-  getArticles(url, params)
+export const getArticleThunk = (params: IArticlesParams): AppThunk => async (dispatch) => {
+  getArticles(params)
    .then((data) => {
     dispatch({
       type: "PUSH_ARTICLES",

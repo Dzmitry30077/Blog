@@ -1,19 +1,12 @@
-import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import CardsBlock from "../../components/cardsBlock/CardsBlock";
-import Menu from "../../components/menu/Menu";
-import Wrapper from "../../components/wrapper/Wrapper";
-import Footer from "../../layouts/footer/Footer";
-import Header from "../../layouts/header/Header";
-import Pagination from "../../layouts/pagination/Pagination";
+import CardsBlock from "../../components/Cards/Cards-block";
+import Menu from "../../components/Menu/Menu";
+import Wrapper from "../../components/Wrapper/Wrapper";
+import Footer from "../../layouts/Footer/Footer";
+import Header from "../../layouts/Header/Header";
+import Pagination from "../../layouts/Pagination/Pagination";
 import "./Main.scss";
 
 const Main: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  useEffect(() => {
-    setSearchParams(`?path=articles&page=1`);
-  }, []);
-
   return (
     <div className="main">
       <Header />

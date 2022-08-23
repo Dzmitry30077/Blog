@@ -1,8 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import { iPages } from "../../types/Types";
 import "./Pages.scss";
 
-const Pages: React.FC<iPages> = ({ count, current }) => {
+const Pages: React.FC<any> = ({ count, current }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleClickPage = (page: any) => {

@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { INavTitle } from "../../../types/Types";
-import "./NavTitle.scss";
+import "./Nav-title.scss";
 
-const NavTitle: React.FC<INavTitle> = ({ id }) => {
+const NavTitle: React.FC<any> = ({ id }) => {
   return (
     <div className="nav-title">
       <Link to={"/?page=1"} className="nav-title-link">

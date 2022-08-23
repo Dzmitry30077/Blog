@@ -1,48 +1,46 @@
-import CardsBlock from "../../components/cardsBlock/CardsBlock";
-import NavTitle from "../../components/elements/navTitle/NavTitle";
-import PageTitle from "../../components/elements/pageTitle/PageTitle";
-import Wrapper from "../../components/wrapper/Wrapper";
-import Footer from "../../layouts/footer/Footer";
-import Header from "../../layouts/header/Header";
-import "./CardContent.scss";
+import CardsBlock from "../../components/Cards/Cards-block";
+import NavTitle from "../../components/elements/Nav-title/Nav-title";
+import PageTitle from "../../components/elements/Page-title/Page-title";
+import Wrapper from "../../components/Wrapper/Wrapper";
+import Footer from "../../layouts/Footer/Footer";
+import Header from "../../layouts/Header/Header";
+import "./Card-content.scss";
 
-import { useSearchParams } from "react-router-dom";
-import { useEffect } from "react";
-import { getPostThunk } from "../../store/GetPostThunk";
-import { useAppDispatch, useAppSelector } from "../../store/Index";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+const url = "https://api.spaceflightnewsapi.net/v3/articles";
 
 const CardContent: React.FC = () => {
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get("id");
-
-  const dispatch = useAppDispatch();
-
-  const selectPost = searchParams.get("path") ?? "articles";
-  const post = useAppSelector((state) => state.post.post);
+  const { id } = useParams();
+  const [article, setArticle] = useState<any>({});
 
   useEffect(() => {
-    if (id) {
-      dispatch(getPostThunk(selectPost, id));
-    }
-  }, [id, selectPost, dispatch]);
+    fetch(`${url}/${id}`)
+      .then((response) => response.json())
+      .then((result) => {
+        setArticle(result);
+      })
+      .catch(console.error);
+  }, [id]);
 
   return (
     <>
       <Header />
       <Wrapper>
-        <NavTitle id={post.id} />
-        <PageTitle text={post.title} />
+        <NavTitle id={id} />
+        <PageTitle text={article.title} />
         <div className="card-content">
           <span className="card-content-container">
             <span className="card-content-gradient">
               <img
-                src={post.imageUrl}
+                src={article.imageUrl}
                 alt="cosmos"
                 className="card-content-img"
               />
             </span>
           </span>
-          <div className="card-content-text">{post.summary}</div>
+          <div className="card-content-text">{article.summary}</div>
           <div className="card-content-share">
             <a
               href="https://www.facebook.com/"

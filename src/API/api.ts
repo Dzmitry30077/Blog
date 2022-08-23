@@ -1,14 +1,12 @@
 import axios from "axios";
 import { IArticlesParams } from "../types/Types";
 
+export const urlArticles = "https://api.spaceflightnewsapi.net/v3/articles";
+export const urlNews = 'https://api.spaceflightnewsapi.net/v3/blogs'
 
-export const apiIntance = axios.create({
-  baseURL: "https://api.spaceflightnewsapi.net/v3"
-});
-
-export const getArticles = async (url: string, params: IArticlesParams) => {
+export const getArticles = async (params: IArticlesParams) => {
   try {
-    const response = await apiIntance.get(url, {
+    const response = await axios.get(urlArticles, {
       params: {
         _limit: params.limit,
         _start: +(params.page) * params.limit - params.limit,
@@ -16,15 +14,6 @@ export const getArticles = async (url: string, params: IArticlesParams) => {
         _sort: params.sort
       }
     });
-    return response.data
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-export const getPost = async (url: string, id: string) => {
-  try {
-    const response = await apiIntance.get(`${url}/${id}`)
     return response.data
   } catch (error) {
     console.error(error);
